@@ -1,0 +1,41 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-09 15:19:21.009539",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "from_pincode",
+  "to_pincode"
+ ],
+ "fields": [
+  {
+   "fieldname": "from_pincode",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "From Pincode",
+   "reqd": 1
+  },
+  {
+   "fieldname": "to_pincode",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "To Pincode",
+   "reqd": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "istable": 1,
+ "links": [],
+ "modified": "2024-09-09 15:19:21.009539",
+ "modified_by": "Administrator",
+ "module": "Hub Marketplace Connector",
+ "name": "Hub Seller Warehouse Setting Pincode Detail",
+ "owner": "Administrator",
+ "permissions": [],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

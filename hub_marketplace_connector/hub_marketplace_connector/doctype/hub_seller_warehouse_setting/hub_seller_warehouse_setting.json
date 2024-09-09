@@ -1,0 +1,114 @@
+{
+ "actions": [],
+ "autoname": "field:warehouse",
+ "creation": "2024-09-09 15:17:34.819136",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "warehouse_details_section",
+  "warehouse",
+  "pickup_available",
+  "delivery_available",
+  "disabled",
+  "deliver_based_on",
+  "column_break_cuf6n",
+  "delivery_time",
+  "distance",
+  "pincode_details"
+ ],
+ "fields": [
+  {
+   "fieldname": "warehouse_details_section",
+   "fieldtype": "Section Break",
+   "label": "Warehouse Details"
+  },
+  {
+   "fieldname": "warehouse",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Warehouse",
+   "options": "Warehouse",
+   "reqd": 1,
+   "unique": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "pickup_available",
+   "fieldtype": "Check",
+   "label": "Pickup Available"
+  },
+  {
+   "default": "0",
+   "fieldname": "delivery_available",
+   "fieldtype": "Check",
+   "label": "Delivery Available"
+  },
+  {
+   "default": "0",
+   "fieldname": "disabled",
+   "fieldtype": "Check",
+   "label": "Disabled"
+  },
+  {
+   "depends_on": "eval:doc.delivery_available === 1",
+   "fieldname": "deliver_based_on",
+   "fieldtype": "Select",
+   "label": "Deliver Based on",
+   "mandatory_depends_on": "eval:doc.delivery_available === 1",
+   "options": "Deliver Anywhere\nDistance\nPincode"
+  },
+  {
+   "fieldname": "column_break_cuf6n",
+   "fieldtype": "Column Break"
+  },
+  {
+   "depends_on": "eval:doc.delivery_available === 1",
+   "fieldname": "delivery_time",
+   "fieldtype": "Duration",
+   "label": "Delivery Time",
+   "mandatory_depends_on": "eval:doc.delivery_available === 1"
+  },
+  {
+   "depends_on": "eval: doc.deliver_based_on === \"Distance\"",
+   "fieldname": "distance",
+   "fieldtype": "Int",
+   "label": "Distance",
+   "mandatory_depends_on": "eval: doc.deliver_based_on === \"Distance\""
+  },
+  {
+   "depends_on": "eval: doc.deliver_based_on === \"Pincode\"",
+   "fieldname": "pincode_details",
+   "fieldtype": "Table",
+   "label": "Pincode Details",
+   "mandatory_depends_on": "eval: doc.deliver_based_on === \"Pincode\"",
+   "options": "Hub Seller Warehouse Setting Pincode Detail"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2024-09-09 15:20:23.400702",
+ "modified_by": "Administrator",
+ "module": "Hub Marketplace Connector",
+ "name": "Hub Seller Warehouse Setting",
+ "naming_rule": "Expression (old style)",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}

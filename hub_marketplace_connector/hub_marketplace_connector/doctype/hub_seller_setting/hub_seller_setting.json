@@ -1,0 +1,208 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "creation": "2024-09-09 14:21:39.571557",
+ "default_view": "List",
+ "doctype": "DocType",
+ "editable_grid": 1,
+ "engine": "InnoDB",
+ "field_order": [
+  "configuration_settings_tab",
+  "store_listing_section",
+  "store_name",
+  "support_contact",
+  "logo",
+  "column_break_53",
+  "short_description",
+  "long_description",
+  "configuration_settings_section",
+  "company",
+  "inactive",
+  "rating",
+  "fulfilment_settings_tab",
+  "warehouse_details",
+  "price_list",
+  "column_break_35",
+  "allow_items_not_in_stock",
+  "api_settings_tab",
+  "hub_user",
+  "environment",
+  "enabled",
+  "subscriber_url",
+  "column_break_awjuh",
+  "api_key",
+  "api_secret"
+ ],
+ "fields": [
+  {
+   "fieldname": "configuration_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Company Settings"
+  },
+  {
+   "fieldname": "configuration_settings_section",
+   "fieldtype": "Section Break"
+  },
+  {
+   "description": "Default business to be registered as seller in Hub Marketplace",
+   "fieldname": "company",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Company",
+   "options": "Company",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "inactive",
+   "fieldtype": "Check",
+   "label": "Inactive"
+  },
+  {
+   "fieldname": "rating",
+   "fieldtype": "Rating",
+   "label": "Rating",
+   "read_only": 1
+  },
+  {
+   "fieldname": "store_listing_section",
+   "fieldtype": "Section Break",
+   "label": "Hub Listing"
+  },
+  {
+   "description": "This is the name that shall be visible to the buyers. It can be your brand name.",
+   "fieldname": "store_name",
+   "fieldtype": "Data",
+   "label": "Store Name"
+  },
+  {
+   "fieldname": "support_contact",
+   "fieldtype": "Link",
+   "label": "Support Contact",
+   "options": "Contact",
+   "reqd": 1
+  },
+  {
+   "fieldname": "logo",
+   "fieldtype": "Attach",
+   "label": "Logo"
+  },
+  {
+   "fieldname": "column_break_53",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "short_description",
+   "fieldtype": "Small Text",
+   "label": "Short Description"
+  },
+  {
+   "fieldname": "long_description",
+   "fieldtype": "Long Text",
+   "label": "Long Description"
+  },
+  {
+   "default": "0",
+   "fieldname": "allow_items_not_in_stock",
+   "fieldtype": "Check",
+   "label": "Allow items not in stock as part of catalog"
+  },
+  {
+   "description": "The warehouse locations from where the goods will be delivered. Please note a valid address and contact should be linked to the warehouse.\nWarehouse address shall be the billing address to generate sales invoice.",
+   "fieldname": "warehouse_details",
+   "fieldtype": "Table MultiSelect",
+   "label": "Fulfilment Details",
+   "options": "Hub Seller Warehouse Detail",
+   "reqd": 1
+  },
+  {
+   "description": "This is the price list from which the item prices for items to be published on Hub Marketplace shall be picked.\n\nDo ensure to provide the best pricing to get better leads.",
+   "fieldname": "price_list",
+   "fieldtype": "Link",
+   "label": "Price List",
+   "options": "Price List",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_35",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "api_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "API Settings"
+  },
+  {
+   "fieldname": "environment",
+   "fieldtype": "Select",
+   "label": "Environment",
+   "options": "\nPre-Production\nProduction",
+   "reqd": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "enabled",
+   "fieldtype": "Check",
+   "label": "Enabled",
+   "read_only": 1
+  },
+  {
+   "fieldname": "subscriber_url",
+   "fieldtype": "Data",
+   "label": "Subscriber URL",
+   "read_only": 1
+  },
+  {
+   "fieldname": "fulfilment_settings_tab",
+   "fieldtype": "Tab Break",
+   "label": "Catalog Settings"
+  },
+  {
+   "description": "This user shall be used to create leads and further the Hub User shall be created based on this User ID",
+   "fieldname": "hub_user",
+   "fieldtype": "Link",
+   "label": "Hub User",
+   "options": "User",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_awjuh",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "api_key",
+   "fieldtype": "Data",
+   "label": "API Key",
+   "read_only": 1
+  },
+  {
+   "fieldname": "api_secret",
+   "fieldtype": "Password",
+   "label": "API Secret",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "issingle": 1,
+ "links": [],
+ "modified": "2024-09-09 15:32:45.548825",
+ "modified_by": "Administrator",
+ "module": "Hub Marketplace Connector",
+ "name": "Hub Seller Setting",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
