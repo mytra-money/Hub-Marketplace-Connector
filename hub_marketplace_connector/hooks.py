@@ -4,6 +4,8 @@ app_publisher = "pwctech technologies private limited"
 app_description = "This is the custom App for ERPNext users to connect with Hub Marketplace"
 app_email = "contact@pwctech.in"
 app_license = "mit"
+extend_bootinfo = "hub_marketplace_connector.boot.set_bootinfo"
+
 # required_apps = []
 
 # Includes in <head>
