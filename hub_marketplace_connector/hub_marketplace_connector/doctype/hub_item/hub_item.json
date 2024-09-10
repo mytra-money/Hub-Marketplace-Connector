@@ -38,7 +38,7 @@
   "column_break_20",
   "specifications",
   "additional_specifications",
-  "copy_from_ondc_item_attributes",
+  "copy_from_hub_item_attributes",
   "variant_details_section",
   "variant_of",
   "enable_variants",
@@ -224,11 +224,6 @@
    "options": "Hub Item Specification"
   },
   {
-   "fieldname": "copy_from_ondc_item_attributes",
-   "fieldtype": "Button",
-   "label": "Copy From ONDC Item Attributes"
-  },
-  {
    "depends_on": "eval: doc.variant_of",
    "fieldname": "variant_details_section",
    "fieldtype": "Section Break",
@@ -258,6 +253,11 @@
    "hidden": 1,
    "label": "Item Variants",
    "options": "Hub Item Variant"
+  },
+  {
+   "fieldname": "copy_from_hub_item_attributes",
+   "fieldtype": "Button",
+   "label": "Copy From Hub Item Attributes"
   }
  ],
  "image_field": "image",
@@ -265,7 +265,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 2,
- "modified": "2024-09-09 15:43:20.848021",
+ "modified": "2024-09-09 19:08:59.479317",
  "modified_by": "Administrator",
  "module": "Hub Marketplace Connector",
  "name": "Hub Item",
