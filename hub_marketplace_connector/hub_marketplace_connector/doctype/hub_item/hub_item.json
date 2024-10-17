@@ -32,7 +32,7 @@
   "item_specifications_tab",
   "image",
   "back_image",
-  "slideshow",
+  "additional_images",
   "short_description",
   "long_description",
   "column_break_20",
@@ -191,12 +191,6 @@
    "label": "Back Image"
   },
   {
-   "fieldname": "slideshow",
-   "fieldtype": "Link",
-   "label": "Slideshow",
-   "options": "Website Slideshow"
-  },
-  {
    "fieldname": "short_description",
    "fieldtype": "Small Text",
    "label": "Short Description"
@@ -258,6 +252,12 @@
    "fieldname": "copy_from_hub_item_attributes",
    "fieldtype": "Button",
    "label": "Copy From Hub Item Attributes"
+  },
+  {
+   "fieldname": "additional_images",
+   "fieldtype": "Link",
+   "label": "Additional Images",
+   "options": "Website Slideshow"
   }
  ],
  "image_field": "image",
@@ -265,7 +265,7 @@
  "links": [],
  "make_attachments_public": 1,
  "max_attachments": 2,
- "modified": "2024-09-09 19:08:59.479317",
+ "modified": "2024-10-09 18:54:48.767711",
  "modified_by": "Administrator",
  "module": "Hub Marketplace Connector",
  "name": "Hub Item",

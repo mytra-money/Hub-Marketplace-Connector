@@ -20,9 +20,11 @@
   "inactive",
   "rating",
   "fulfilment_settings_tab",
-  "warehouse_details",
   "price_list",
+  "default_tax_template",
+  "customer_group",
   "column_break_35",
+  "warehouse_details",
   "allow_items_not_in_stock",
   "api_settings_tab",
   "hub_user",
@@ -116,7 +118,7 @@
    "reqd": 1
   },
   {
-   "description": "This is the price list from which the item prices for items to be published on Hub Marketplace shall be picked.\n\nDo ensure to provide the best pricing to get better leads.",
+   "description": "This is the price list from which the MRP of the items shall be picked, you can add discounts via Pricing Rule",
    "fieldname": "price_list",
    "fieldtype": "Link",
    "label": "Price List",
@@ -163,6 +165,7 @@
    "fieldtype": "Link",
    "label": "Hub User",
    "options": "User",
+   "read_only_depends_on": "eval:doc.enabled",
    "reqd": 1
   },
   {
@@ -180,12 +183,25 @@
    "fieldtype": "Password",
    "label": "API Secret",
    "read_only": 1
+  },
+  {
+   "fieldname": "customer_group",
+   "fieldtype": "Link",
+   "label": "Customer Group",
+   "options": "Customer Group"
+  },
+  {
+   "fieldname": "default_tax_template",
+   "fieldtype": "Link",
+   "label": "Default Tax Template",
+   "options": "Sales Taxes and Charges Template",
+   "reqd": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "issingle": 1,
  "links": [],
- "modified": "2024-09-09 15:32:45.548825",
+ "modified": "2024-10-09 17:29:46.528948",
  "modified_by": "Administrator",
  "module": "Hub Marketplace Connector",
  "name": "Hub Seller Setting",

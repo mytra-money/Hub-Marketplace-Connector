@@ -135,23 +135,23 @@ extend_bootinfo = "hub_marketplace_connector.boot.set_bootinfo"
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"all": [
-# 		"hub_marketplace_connector.tasks.all"
-# 	],
-# 	"daily": [
-# 		"hub_marketplace_connector.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"hub_marketplace_connector.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"hub_marketplace_connector.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"hub_marketplace_connector.tasks.monthly"
-# 	],
-# }
+scheduler_events = {
+	# "all": [
+	# 	"hub_marketplace_connector.tasks.all"
+	# ],
+	"daily": [
+		"hub_marketplace_connector.tasks.daily"
+	],
+	"hourly": [
+		"hub_marketplace_connector.tasks.hourly"
+	],
+	# "weekly": [
+	# 	"hub_marketplace_connector.tasks.weekly"
+	# ],
+	# "monthly": [
+	# 	"hub_marketplace_connector.tasks.monthly"
+	# ],
+}
 
 # Testing
 # -------
@@ -161,9 +161,9 @@ extend_bootinfo = "hub_marketplace_connector.boot.set_bootinfo"
 # Overriding Methods
 # ------------------------------
 #
-# override_whitelisted_methods = {
-# 	"frappe.desk.doctype.event.event.get_events": "hub_marketplace_connector.event.get_events"
-# }
+override_whitelisted_methods = {
+	"hub_marketplace_connector": "hub_marketplace_connector.hub_marketplace_connector.api.handle"
+}
 #
 # each overriding function accepts a `data` argument;
 # generated from the base implementation of the doctype dashboard,
