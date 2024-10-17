@@ -7,7 +7,7 @@ from frappe.model.document import Document
 from frappe import _
 from frappe.utils import flt, getdate, get_url
 from frappe.utils.nestedset import get_root_of
-from hub_marketplace_connector.hub_marketplace_connector.api.hub_services import HubServices
+from hub_marketplace_connector.api.hub_services import HubServices
 from erpnext.stock.utils import get_stock_balance
 
 class HubItem(Document):

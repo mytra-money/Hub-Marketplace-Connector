@@ -7,7 +7,7 @@ from frappe.model.document import Document
 from frappe import _
 from frappe.utils.data import add_years, format_date, get_host_name, get_url
 from frappe.integrations.utils import create_request_log
-from hub_marketplace_connector.hub_marketplace_connector.api.hub_services import HubServices
+from hub_marketplace_connector.api.hub_services import HubServices
 
 class HubSellerSetting(Document):
 	def validate(self):

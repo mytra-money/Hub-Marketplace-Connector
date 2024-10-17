@@ -162,7 +162,7 @@ scheduler_events = {
 # ------------------------------
 #
 override_whitelisted_methods = {
-	"hub_marketplace_connector": "hub_marketplace_connector.hub_marketplace_connector.api.handle"
+	"hub_marketplace_connector": "hub_marketplace_connector.api.handle"
 }
 #
 # each overriding function accepts a `data` argument;
