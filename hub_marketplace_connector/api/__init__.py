@@ -1,5 +1,6 @@
 import frappe
 from frappe.utils.password import get_decrypted_password
+from hub_marketplace_connector.api.seller_services import sellerServices
 
 @frappe.whitelist(allow_guest=True)
 def handle():
@@ -11,13 +12,14 @@ def handle_request():
     request = url_parts[-1] if url_parts[-1][0] != "/" else url_parts[-1][1:]
     data = frappe._dict(frappe.local.form_dict)
     data.pop("cmd")
-    match request:
-        case "ping":
-            return "pong"
-        case "capture_lead":
-            return data
-    
-    raise frappe.ValidationError
+    try:
+        seller_services = sellerServices(data)
+        if hasattr(seller_services, request):
+            return getattr(seller_services, request)()
+        else:
+            raise AttributeError(f"Invalid Request")
+    except Exception as e:
+        raise frappe.ValidationError(e)
 
 
 def validate_auth():
