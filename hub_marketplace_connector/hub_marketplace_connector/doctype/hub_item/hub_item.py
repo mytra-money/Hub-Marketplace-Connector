@@ -20,6 +20,7 @@ class HubItem(Document):
 		self.validate_warehouse()
 		self.validate_variants()
 		self.validate_update_time()
+		self.validate_return_policy()
 	
 	def validate_hub_seller_settings(self):
 		if not frappe.db.exists("Hub Seller Setting"):
@@ -85,17 +86,21 @@ class HubItem(Document):
 			if self.last_updated_at < self.modified:
 				self.last_updated_at = self.modified
 	
+	def validate_return_policy(self):
+		if flt(self.return_within) <=1200:
+			frappe.throw("Return policy should have a resonable return window for defective products. Please select a resonable return time in Return Within")
+
 	@frappe.whitelist()
 	def copy_hub_item_attributes(self):
 		sub_category_doc = self.get_sub_category()
 		if len(sub_category_doc.get("statutory_attributes", [])):
 			for s in sub_category_doc.get("statutory_attributes"):
-				if s.mandatory:
-					if len(self.specifications) and any(s.hub_attribute == s.attribute_name for s in self.specifications):
+				if s.get("mandatory"):
+					if len(self.specifications) and any(specification.hub_attribute == s.get("attribute_name") for specification in self.specifications):
 						continue
 					else:
 						row = self.append("specifications")
-						row.hub_attribute = s.attribute_name
+						row.hub_attribute = s.get("attribute_name")
 	
 	@frappe.whitelist()
 	def set_warehouse(self):
@@ -117,7 +122,7 @@ class HubItem(Document):
 	
 	@frappe.whitelist()
 	def get_sub_category(self):
-		return HubServices().get_sub_category(self.sub_category)
+		return HubServices().get_category(self.sub_category)
 
 	def get_item_data(self):
 		item_data = {
@@ -161,7 +166,7 @@ class HubItem(Document):
 			item_data["back_image"] = get_url(frappe.db.get_value("File", filters={"attached_to_name": self.name, "attached_to_doctype": self.doctype, "attached_to_field": "back_image"}, fieldname="file_url"))
 		if self.additional_images:
 			item_data["additional_images"] = []
-			slideshow_file_list = frappe.get_all("File", fields = ["file_url"], filters={"attached_to_name": hub_item.additional_images, "attached_to_doctype": "Website Slideshow"})
+			slideshow_file_list = frappe.get_all("File", fields = ["file_url"], filters={"attached_to_name": self.additional_images, "attached_to_doctype": "Website Slideshow"})
 			for f in slideshow_file_list:
 				item_data["additional_images"].append(get_url(f.file_url))
 		

@@ -19,13 +19,13 @@ class HubServices:
             self.base_url = "https://sit.mytra.money/api/method/hub_marketplace/"
     
     def get_categories(self):
-        url = self.base_url+"get_categories"
+        url = self.base_url+"get_seller_categories"
         response = request(method="POST", url=url).json()
         return response.get("message")
     
-    def get_sub_category(self, sub_category):
-        url = self.base_url+"get_sub_category"
-        response = request(method="POST", url=url, data=frappe.as_json({"sub_category": sub_category}), headers={"Content-Type": "application/json"}).json()
+    def get_category(self, category):
+        url = self.base_url+"get_category"
+        response = request(method="POST", url=url, data=frappe.as_json({"category": category}), headers={"Content-Type": "application/json"}).json()
         return response.get("message")
     
     def register_user(self, user_data):

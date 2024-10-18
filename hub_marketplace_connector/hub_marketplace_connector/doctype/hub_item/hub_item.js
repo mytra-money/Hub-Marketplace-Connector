@@ -7,7 +7,7 @@ function set_sub_category_field() {
 		const hub_categories_data = frappe.boot.hub_categories_response
 		const selected_category = hub_categories_data.find(cat => cat.name === cur_frm.doc.category);
 		if (selected_category.sub_category && selected_category.sub_category.length > 0) {
-			const sub_categories = selected_category.sub_category.map(subcat => subcat.sub_category).sort((a, b) => a.localeCompare(b));;
+			const sub_categories = selected_category.sub_category.map(subcat => subcat.name).sort((a, b) => a.localeCompare(b));
 			cur_frm.set_df_property('sub_category', 'hidden', 0)
 			cur_frm.set_df_property('sub_category', 'reqd', 1)
 			sub_category_field.set_data(sub_categories)
@@ -41,6 +41,9 @@ frappe.ui.form.on('Hub Item', {
 			});
 		}
 	},
+	enable_variants: function (frm) {
+		frm.events.set_additional_attributes_and_variant_df(frm);
+	},
 	copy_from_hub_item_attributes: (frm) => {
 		return frm.call({
 			doc: frm.doc,
@@ -61,18 +64,20 @@ frappe.ui.form.on('Hub Item', {
 		frm.call({
 			doc: frm.doc,
 			method: 'get_sub_category',
-			callback: (r) =>{
-				if (r.message.length) {
+			callback: (r) => {
+				if (r.message && r.message.additional_attributes.length) {
 					frm.set_df_property('additional_specifications', 'hidden', 0)
-					if (frm.doc.variant_of){
+					if (frm.doc.variant_of && frm.doc.enable_variants){
 						frm.set_df_property('item_variants', 'hidden', 0)
+					}
+					else {
+						frm.set_df_property('item_variants', 'hidden', 1)
 					}
 				}
 				else {
 					frm.set_df_property('additional_specifications', 'hidden', 1)
 					frm.set_df_property('item_variants', 'hidden', 1)
 				}
-
 			}
 		})
 	}
