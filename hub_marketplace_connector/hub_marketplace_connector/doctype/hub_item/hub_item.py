@@ -92,15 +92,18 @@ class HubItem(Document):
 
 	@frappe.whitelist()
 	def copy_hub_item_attributes(self):
-		sub_category_doc = self.get_sub_category()
-		if len(sub_category_doc.get("statutory_attributes", [])):
-			for s in sub_category_doc.get("statutory_attributes"):
-				if s.get("mandatory"):
-					if len(self.specifications) and any(specification.hub_attribute == s.get("attribute_name") for specification in self.specifications):
-						continue
-					else:
-						row = self.append("specifications")
-						row.hub_attribute = s.get("attribute_name")
+		if self.sub_category:
+			sub_category_doc = self.get_sub_category()
+			if len(sub_category_doc.get("statutory_attributes", [])):
+				for s in sub_category_doc.get("statutory_attributes"):
+					if s.get("mandatory"):
+						if len(self.specifications) and any(specification.hub_attribute == s.get("attribute_name") for specification in self.specifications):
+							continue
+						else:
+							row = self.append("specifications")
+							row.hub_attribute = s.get("attribute_name")
+		else:
+			return
 	
 	@frappe.whitelist()
 	def set_warehouse(self):
