@@ -18,7 +18,7 @@ class HubSellerSetting(Document):
 			self.subscribe()
 	
 	def add_keys(self):
-		self.subscriber_url = get_url("/api/method/hub_connect")
+		self.subscriber_url = get_url("/api/method/hub_marketplace_connector")
 
 	def validate_contacts(self):
 		support_contact = frappe.get_cached_doc("Contact", self.support_contact)
