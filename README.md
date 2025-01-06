@@ -28,7 +28,7 @@ For a detailed overview of these features and setup guidelines, please refer to 
 3. Once ERPNext is installed, add the Hub Connector app to your bench by running
 
 	```sh
-	$ bench get-app git@github.com:mytra-money/Hub-Marketplace-Connector.git
+	$ bench get-app git@github.com:mytra-money/hub-connector.git
 	```
 4. After that, you can install the Hub Connector app on the required site by running
 	```sh
